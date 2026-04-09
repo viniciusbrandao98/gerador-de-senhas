@@ -1,0 +1,16 @@
+const btn = document.querySelector(".btn")
+console.log(btn)
+
+btn.addEventListener("click", () => {
+    criarsenha()
+});
+
+function criarsenha(){
+    const caracteres = "0123456789abcdefghijklmnopqrstuvwxtz!@#$%^&*()_+?:{}[]ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    const tamanhoSenha = 14;
+    let senha = ""
+    for (let index = 0; index < tamanhoSenha; index++) {
+        const numAleatorio = Math.floor(Math.random() * caracteres.length);
+        senha += caracteres.substring(numAleatorio, numAleatorio + 1);
+    }
+};
