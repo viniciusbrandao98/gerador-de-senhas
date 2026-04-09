@@ -2,16 +2,21 @@ const btn = document.querySelector(".btn")
 console.log(btn)
 const inputEl = document.getElementById("input");
 const copiaEl = document.querySelector(".fa-copy");
+const senhaSalva = document.querySelector(".alerta-container")
 
 btn.addEventListener("click", () => {
     criarsenha()
 });
 
 copiaEl.addEventListener("click", () => {
-    copySenha()
+    copySenha();
+    senhaSalva.classList.add("active");
+    setTimeout(() => {
+        senhaSalva.classList.remove("active");
+    }, 2000);
 })
 
-function criarsenha(){
+function criarsenha() {
     const caracteres = "0123456789abcdefghijklmnopqrstuvwxtz!@#$%^&*()_+?:{}[]ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     const tamanhoSenha = 14;
     let senha = ""
@@ -23,7 +28,8 @@ function criarsenha(){
     inputEl.value = senha
 };
 
-function copySenha(){
+function copySenha() {
     inputEl.select();
     navigator.clipboard.writeText(inputEl.value);
+    senhaSalva.innerText = inputEl.value + "  copiada"
 }
