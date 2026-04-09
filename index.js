@@ -1,10 +1,15 @@
 const btn = document.querySelector(".btn")
 console.log(btn)
 const inputEl = document.getElementById("input");
+const copiaEl = document.querySelector(".fa-copy");
 
 btn.addEventListener("click", () => {
     criarsenha()
 });
+
+copiaEl.addEventListener("click", () => {
+    copySenha()
+})
 
 function criarsenha(){
     const caracteres = "0123456789abcdefghijklmnopqrstuvwxtz!@#$%^&*()_+?:{}[]ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -17,3 +22,8 @@ function criarsenha(){
     }
     inputEl.value = senha
 };
+
+function copySenha(){
+    inputEl.select();
+    navigator.clipboard.writeText(inputEl.value);
+}
