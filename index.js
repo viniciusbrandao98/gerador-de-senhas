@@ -1,5 +1,6 @@
 const btn = document.querySelector(".btn")
 console.log(btn)
+const inputEl = document.getElementById("input");
 
 btn.addEventListener("click", () => {
     criarsenha()
@@ -12,5 +13,7 @@ function criarsenha(){
     for (let index = 0; index < tamanhoSenha; index++) {
         const numAleatorio = Math.floor(Math.random() * caracteres.length);
         senha += caracteres.substring(numAleatorio, numAleatorio + 1);
+        console.log(numAleatorio, senha);
     }
+    inputEl.value = senha
 };
